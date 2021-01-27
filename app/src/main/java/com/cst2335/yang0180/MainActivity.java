@@ -28,21 +28,15 @@ public class MainActivity extends AppCompatActivity {
 
             if (checked){
                 snackbar = Snackbar.make(s,R.string.on,Snackbar.LENGTH_LONG);
-                snackbar.setAction(R.string.undo, new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        sth.setChecked(!checked);
-                    }
-                });
             }else{
                 snackbar = Snackbar.make(s,R.string.off,Snackbar.LENGTH_LONG);
-                snackbar.setAction(R.string.undo, new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        sth.setChecked(!checked);
-                    }
-                });
             }
+            snackbar.setAction(R.string.undo, new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    sth.setChecked(!checked);
+                }
+            });
 
             if(snackbar != null){
                 snackbar.show();
