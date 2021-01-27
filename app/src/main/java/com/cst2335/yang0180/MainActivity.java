@@ -19,7 +19,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main_grid);
         Button btn =findViewById(R.id.btn);
         btn.setOnClickListener(e->{
-            Toast.makeText(this,R.string.information,Toast.LENGTH_LONG);});
+            Toast.makeText(this,R.string.information,Toast.LENGTH_LONG).show();
+        });
         Switch sth = findViewById(R.id.sth);
 //        sth.setText("The switch is now on");
 //        sth.setTextOff("The switch is now off");
