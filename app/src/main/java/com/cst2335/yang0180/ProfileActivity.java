@@ -66,24 +66,24 @@ public class ProfileActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        Log.e(ACTIVITY_NAME, "In function:  + /* replace with function name */");
+        Log.e(ACTIVITY_NAME, "In function: onResume()");
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        Log.e(ACTIVITY_NAME, "In function:  + /* replace with function name */");
+        Log.e(ACTIVITY_NAME, "In function:  onStart()");
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        Log.e(ACTIVITY_NAME, "In function:  + /* replace with function name */");
+        Log.e(ACTIVITY_NAME, "In function: onStop()");
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        Log.e(ACTIVITY_NAME, "In function:  + /* replace with function name */");
+        Log.e(ACTIVITY_NAME, "In function:  onDestroy()");
     }
 }
