@@ -22,4 +22,6 @@
     <string name="enter_your_email">Enter your email</string>
     <string name="enter_your_name">Enter your name</string>
     <string name="take_picture_hint">Click button above to take a picture</string>
+    <string name="send">SEND</string>
+    <string name="receive">RECEIVE</string>
     </resources>
