@@ -119,7 +119,7 @@ public class ChatRoomActivity extends AppCompatActivity {
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
 
-            if( convertView == null){
+      //      if( convertView == null){
                 LayoutInflater inflater = getLayoutInflater();
                 Message message = getItem(position);
                 if( message.isSend()){
@@ -131,7 +131,7 @@ public class ChatRoomActivity extends AppCompatActivity {
                     TextView messageContent = convertView.findViewById(R.id.receive_msg_content);
                     messageContent.setText(message.getContent());
                 }
-            }
+        //    }
 
             return convertView;
         }
