@@ -11,6 +11,12 @@ public class Message {
         this.content = content;
     }
 
+    public Message(long id, boolean isSend, String content) {
+        this.id = id;
+        this.isSend = isSend;
+        this.content = content;
+    }
+
     public long getId() {
         return id;
     }

@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -23,6 +24,7 @@ public class ChatRoomActivity extends AppCompatActivity {
     Button sendBtn;
     Button receiveBtn;
     EditText inputBox;
+    MyDBHelper myDBHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +35,8 @@ public class ChatRoomActivity extends AppCompatActivity {
         sendBtn = findViewById( R.id.sendBtn);
         receiveBtn = findViewById(R.id.receiveBtn);
         inputBox = findViewById(R.id.input_content);
-        ArrayList<Message> messages = new ArrayList<>();
+        myDBHelper = new MyDBHelper(getApplicationContext());
+        ArrayList<Message> messages = myDBHelper.readAllMessage();
         MyAdapter adapter = new MyAdapter(messages);
         messageList.setAdapter(adapter);
 
@@ -42,6 +45,8 @@ public class ChatRoomActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String content = inputBox.getText().toString();
                 Message message = new Message(true, content);
+                long id = myDBHelper.insertMessage(message);
+                message.setId(id);
                 inputBox.setText("");
                 adapter.addMessage(message);
                 adapter.notifyDataSetChanged();
@@ -53,6 +58,8 @@ public class ChatRoomActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String content = inputBox.getText().toString();
                 Message message = new Message(false, content);
+                long id = myDBHelper.insertMessage(message);
+                message.setId(id);
                 inputBox.setText("");
                 adapter.addMessage(message);
                 adapter.notifyDataSetChanged();
@@ -69,8 +76,14 @@ public class ChatRoomActivity extends AppCompatActivity {
                         .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                adapter.removeMessage(position);
-                                adapter.notifyDataSetChanged();
+                                boolean isRemoved = myDBHelper.deleteMessage(message.getId());
+                                if(isRemoved){
+                                    adapter.removeMessage(position);
+                                    adapter.notifyDataSetChanged();
+                                }else{
+                                    Toast.makeText(ChatRoomActivity.this,"Cannot delete message",Toast.LENGTH_SHORT).show();
+                                }
+
                             }
                         }).setNegativeButton("No", new DialogInterface.OnClickListener() {
                             @Override
