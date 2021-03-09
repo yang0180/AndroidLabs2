@@ -22,5 +22,6 @@
     <string name="take_picture_hint">Click button above to take a picture</string>
     <string name="send">SEND</string>
     <string name="receive">RECEIVE</string>
+    <string name="goToWeather">GO TO WEATHER</string>
 </resources>
 

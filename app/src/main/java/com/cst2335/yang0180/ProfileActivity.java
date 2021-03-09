@@ -18,6 +18,7 @@ public class ProfileActivity extends AppCompatActivity {
     ImageButton takePicBtn;
     EditText emailInput;
     Button toChatBtn;
+    Button goToWeather;
     private static final int REQUEST_IMAGE_CAPTURE = 1;
     private static final String ACTIVITY_NAME = "ProfileActivity";
 
@@ -27,6 +28,7 @@ public class ProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
         emailInput = findViewById(R.id.emailInput);
+        goToWeather = findViewById(R.id.toWeatherForecastBtn);
 
         takePicBtn = findViewById(R.id.takePicBtn);
         takePicBtn.setOnClickListener(new View.OnClickListener() {
@@ -45,6 +47,14 @@ public class ProfileActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent goToChat = new Intent(ProfileActivity.this,ChatRoomActivity.class);
                 startActivity(goToChat);
+            }
+        });
+
+        goToWeather.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent goToWeather = new Intent(ProfileActivity.this, WeatherForecast.class);
+                startActivity(goToWeather);
             }
         });
 
