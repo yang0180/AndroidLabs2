@@ -19,8 +19,10 @@ public class ProfileActivity extends AppCompatActivity {
     EditText emailInput;
     Button toChatBtn;
     Button goToWeather;
+    Button gotoolbar;
     private static final int REQUEST_IMAGE_CAPTURE = 1;
     private static final String ACTIVITY_NAME = "ProfileActivity";
+    public static final int  REQUEST_TOOLBAR = 2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +31,15 @@ public class ProfileActivity extends AppCompatActivity {
         setContentView(R.layout.activity_profile);
         emailInput = findViewById(R.id.emailInput);
         goToWeather = findViewById(R.id.toWeatherForecastBtn);
+        gotoolbar = findViewById(R.id.goToolbar);
+        gotoolbar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent toolbar = new Intent(ProfileActivity.this,TestToolbar.class);
+//                startActivity(toolbar);
+                startActivityForResult(toolbar, REQUEST_TOOLBAR);
+            }
+        });
 
         takePicBtn = findViewById(R.id.takePicBtn);
         takePicBtn.setOnClickListener(new View.OnClickListener() {
@@ -74,6 +85,10 @@ public class ProfileActivity extends AppCompatActivity {
             Bundle extras = data.getExtras();
             Bitmap imageBitmap = (Bitmap) extras.get("data");
             takePicBtn.setImageBitmap(imageBitmap);
+        }
+
+        if( requestCode == REQUEST_TOOLBAR && resultCode == TestToolbar.SUCCESS_FINISH){
+            finish();
         }
 
     }

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+<item android:title="Choice1" android:icon="@drawable/download"
+    app:showAsAction="always" android:id="@+id/choice1" />
+    <item android:title="Choice2" android:icon="@drawable/images" app:showAsAction="always" android:id="@+id/choice2"/>
+    <item android:title="Choice4" android:id="@+id/choice4" app:showAsAction="never"/>
+    <item android:title="Choice3" android:icon="@drawable/pic"
+        app:showAsAction="always" android:id="@+id/choice3" />
+</menu>
